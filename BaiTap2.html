@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    function insertNumberToArray(integers, x, index) {
+        if (index < 0 || index > integers.length) {
+            return integers;
+        } else if (index === integers.length) {
+            integers[integers.length] = x;
+        } else {
+            integers[integers.length] = x;
+            for (let i = integers.length - 1; i > index; i--) {
+                let swap = integers[i];
+                integers[i] = integers[i - 1];
+                integers[i - 1] = swap;
+            }
+        }
+        return integers;
+    }
+
+    let integers = [];
+    while (true) {
+        let integer = prompt("Nhập số nguyên muốn thêm vào mảng");
+        if (integer===null) {
+            break;
+        }
+        integers[integers.length]=Number(integer);
+    }
+    let x = Number(prompt("Nhập X"));    //  Ấn cancel
+    let index = Number(prompt("Nhập vị trí (index)"));   //  Ấn cancel
+    let result = insertNumberToArray(integers, x, index);   //  Ấn cancel
+    console.log(result);
+
+</script>
+
+
+
+
+</body>
+</html>
